@@ -1,112 +1,120 @@
 # Python Password Manager
 
-A desktop-based password manager built using Python, Tkinter and CustomTkinter. The application allows users to save website login credentials locally, retrieve previously saved passwords, and generate random passwords.
+A desktop password management application built using **Python and CustomTkinter**. The application allows users to save website credentials locally, search for previously stored passwords, and generate random passwords through a graphical user interface.
 
-The project was developed as a practical exercise in Python GUI development, file handling, JSON data storage, and working with external libraries.
+## Overview
 
-## Features
+This project is a locally running password manager developed using Python.
 
-- **Save Passwords:** Store website names, email addresses/usernames, and passwords locally in a JSON file.
-- **Password Search:** Search for saved credentials using the associated website name.
-- **Clipboard Integration:** Automatically copy retrieved passwords to the clipboard when searching for saved credentials.
-- **Password Generator:** Generate random passwords containing uppercase and lowercase letters, numbers, and special characters.
-- **Automatic Data Storage:** Save and update credentials in a local JSON file, allowing information to persist between application sessions.
-- **Input Validation:** Prevent saving entries when required fields are left empty.
-- **Confirmation Dialogues:** Display entered credentials for confirmation before saving them.
+The idea behind it was to create a simple desktop application that could store website login credentials, make retrieving saved passwords easier, and generate random passwords without relying on an online password management service.
+
+The application uses JSON files to store saved credentials locally on the computer. It also integrates clipboard functionality to make copying generated and stored passwords more convenient.
+
+The project was developed as a practical exercise in Python GUI development, working with JSON data, file handling, and integrating external Python libraries.
 
 <img width="384" height="240" alt="passwordmanager" src="https://github.com/user-attachments/assets/47c7c412-0801-45d7-b4ce-ad9c215d98eb" />
 
-## Technologies & Libraries
+## Features
 
-- **Python** – Core programming language.
-- **Tkinter** – GUI development.
-- **CustomTkinter** – Enhanced GUI widgets and interface styling.
-- **JSON** – Local data storage and retrieval.
-- **Pyperclip** – Clipboard functionality.
-- **Pillow** – Image library dependency.
+- **Save Credentials:** Store website names, email addresses/usernames, and passwords locally.
+- **Search Credentials:** Retrieve previously saved login details by entering a website name.
+- **Password Generator:** Generate random passwords containing uppercase and lowercase letters, numbers, and special characters.
+- **Clipboard Integration:** Automatically copy generated passwords and retrieve saved passwords to the clipboard.
+- **Persistent Storage:** Save credentials in a local JSON file so they remain available between application sessions.
+- **Graphical User Interface:** Interact with the application through a desktop interface built using CustomTkinter.
+- **Input Validation:** Prevent saving entries with missing website names, usernames, or passwords.
+- **Confirmation Dialogues:** Ask users to confirm their credentials before saving them.
 
-## Project Structure
+## Technologies Used
+
+- **Python 3** – Main programming language.
+- **CustomTkinter** – Desktop graphical user interface.
+- **Tkinter** – GUI functionality and message boxes.
+- **JSON** – Local storage and retrieval of saved credentials.
+- **Pyperclip** – Clipboard integration.
+- **Pillow (PIL)** – Image handling.
+
+## Application Structure
 
 ```text
-Python-Password-Manager/
+python-password-manager/
 │
 ├── main.py
 ├── logo.png
+├── README.md
 ├── requirements.txt
-├── .gitignore
-└── README.md
+└── .gitignore
 ```
 
-`Password File.json` is automatically created when credentials are saved for the first time. It is not included in the GitHub repository.
-
-## Installation & Setup
-
-1. Clone this repository:
-
-   ```bash
-   git clone <repository-url>
-   ```
-
-2. Navigate to the project directory:
-
-   ```bash
-   cd Python-Password-Manager
-   ```
-
-3. Create and activate a virtual environment (optional but recommended):
-
-   ```bash
-   python -m venv venv
-   ```
-
-   Windows PowerShell:
-
-   ```powershell
-   .\venv\Scripts\Activate.ps1
-   ```
-
-4. Install the required dependencies:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-5. Run the application:
-
-   ```bash
-   python main.py
-   ```
+The application also generates a `Password File.json` file when credentials are saved for the first time.
 
 ## How It Works
 
-The application uses a graphical interface to collect website names, usernames/email addresses, and passwords.
+### 1. Saving Passwords
 
-When a user saves credentials, the application checks whether a JSON file already exists. If it does, the new entry is added to the existing data. Otherwise, a new JSON file is created.
+Users enter a website name, email address or username, and password.
 
-The search functionality retrieves credentials using the website name as the lookup key. Retrieved passwords are automatically copied to the clipboard for convenience.
+After clicking the Add button, the application displays a confirmation dialogue before saving the information into a local JSON file.
 
-The password generator creates random passwords by combining letters, numbers, and special characters before shuffling them into a single string.
+### 2. Searching for Passwords
 
-## Security Considerations & Limitations
+Users can enter a previously saved website name and click Search.
 
-This project was developed as a Python programming and GUI development exercise rather than a production-ready security application.
+The application retrieves the associated username and password from the JSON file, displays the credentials, and automatically copies the password to the clipboard.
 
-- Passwords are stored locally in a JSON file in plain text.
-- No encryption or password-protection mechanism is implemented.
-- The password generator uses Python's `random` module rather than a cryptographically secure random number generator.
-- Clipboard contents are not automatically cleared after copying a password.
+### 3. Generating Passwords
 
-**Important:** This application is intended for educational and demonstration purposes. It should not be used to store real or sensitive account credentials.
+The password generator creates random passwords using a combination of:
 
-## Learning Outcomes
+- Uppercase and lowercase letters.
+- Numbers.
+- Special characters.
 
-Through this project, I gained practical experience with:
+The generated password is automatically inserted into the password field and copied to the clipboard.
 
-- Developing desktop applications using Python.
-- Creating interactive GUI elements and handling user input.
-- Reading, writing, and updating JSON files.
-- Implementing search functionality using dictionary lookups.
-- Generating random passwords using Python's built-in modules.
-- Integrating external libraries and clipboard functionality.
-- Handling exceptions and validating user input.
+## Installation & Usage
 
+**1. Clone the repository**
+
+```bash
+git clone https://github.com/YOUR-USERNAME/python-password-manager.git
+```
+
+**2. Navigate into the project directory**
+
+```bash
+cd python-password-manager
+```
+
+**3. Install the required dependencies**
+
+```bash
+pip install -r requirements.txt
+```
+
+**4. Run the application**
+
+```bash
+python main.py
+```
+
+**5. Start managing your credentials**
+
+Use the graphical interface to save, search, and generate passwords.
+
+## Security Considerations
+
+**Important:** This project was developed as a learning exercise and is not intended for storing real or sensitive passwords.
+
+- Passwords are stored locally in plain text within a JSON file.
+- No encryption or master-password protection is implemented.
+- The password generator uses Python's standard `random` module rather than a cryptographically secure random number generator.
+- Passwords copied to the clipboard may remain accessible to other applications.
+
+For these reasons, this application should only be used with dummy credentials or for demonstration purposes.
+
+## Project Background
+
+This project was developed to explore Python desktop application development and the practical use of file handling, JSON data storage, and external libraries.
+
+It provided an opportunity to combine several Python concepts into one functional application, including GUI development, data persistence, random password generation, and clipboard integration.
